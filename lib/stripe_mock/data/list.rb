@@ -14,6 +14,8 @@ module StripeMock
           @data.sort_by { |x| x.created }
           @data.reverse!
         end
+        @data = @data.select{ |x| x[:email] == option[:email] } if option[:email]
+        @data = @data.select{ |x| x[:customer] == option[:customer] } if option[:customer]
       end
 
       def url
